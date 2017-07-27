@@ -5,12 +5,16 @@ export class Home extends React.Component {
 
     constructor(props) {
         super();
-        this.age = props.age;
+        this.state = {
+            age: props.initialAge,
+            status: 0
+        };
     }
 
     onMakeOlder() {
-        this.age += 3;
-        console.log(this.age);
+        this.setState({
+            age: this.state.age + 3
+        });
     }
 
     render() {
@@ -18,7 +22,8 @@ export class Home extends React.Component {
         return (
             <div>
                 <p>Uusi komponentti!</p>       
-                <p>Nimesi on {this.props.name}, ikäsi on {this.age}</p>
+                <p>Nimesi on {this.props.name}, ikäsi on {this.state.age}</p>
+                <p>Status: {this.state.status}</p>
                 <hr/> 
                 <button onClick={() => this.onMakeOlder()} className="btn btn-primary">Lisää ikää!</button>                
             </div>
