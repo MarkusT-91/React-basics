@@ -6,6 +6,10 @@ import {Home} from "./components/Home";
 
 class App extends React.Component {
     render() {
+        var user = {
+            name: "Pekka",
+            hobbies: ["Urheilu", "Elokuvat"]
+        };
         return ( // return voi palauttaa vain yhden parent-elementin
             <div className="container">
                 <div className="row">
@@ -15,7 +19,9 @@ class App extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home/>
+                        <Home name={"Markus"} age={26} user={user}>
+                            <p>Tässä on tekstiä</p>
+                        </Home>
                     </div>
                 </div>
             </div>                
