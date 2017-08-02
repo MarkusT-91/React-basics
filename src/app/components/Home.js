@@ -17,6 +17,15 @@ export class Home extends React.Component {
         });
     }
 
+    onMakeYounger() {
+        this.setState({
+            age: this.state.age - 3       
+        });
+        if(this.state.age <= 0) {
+                alert("Lopeta!");
+            }
+    }
+
     render() {
         var text = "Jotain tekstiä!";
         return (
@@ -25,7 +34,8 @@ export class Home extends React.Component {
                 <p>Nimesi on {this.props.name}, ikäsi on {this.state.age}</p>
                 <p>Status: {this.state.status}</p>
                 <hr/> 
-                <button onClick={() => this.onMakeOlder()} className="btn btn-primary">Lisää ikää!</button>                
+                <button onClick={() => this.onMakeOlder()} className="btn btn-primary">Lisää ikää!</button>
+                <button onClick={() => this.onMakeYounger()} className="btn btn-danger">Vähennä ikää!</button>                
             </div>
         );
     }
