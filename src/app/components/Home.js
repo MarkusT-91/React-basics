@@ -35,7 +35,9 @@ export class Home extends React.Component {
                 <p>Status: {this.state.status}</p>
                 <hr/> 
                 <button onClick={() => this.onMakeOlder()} className="btn btn-primary">Lisää ikää!</button>
-                <button onClick={() => this.onMakeYounger()} className="btn btn-danger">Vähennä ikää!</button>                
+                <button onClick={() => this.onMakeYounger()} className="btn btn-danger">Vähennä ikää!</button>
+                <hr/>
+                <button onClick={this.props.greet} className="btn btn-success">Tervehdi</button>                
             </div>
         );
     }
@@ -43,5 +45,6 @@ export class Home extends React.Component {
 
 Home.propTypes = { // määrittää mitä tyyppiä minkäkin arvon tulee olla. Jollei esim nimi ole string = error
     name: PropTypes.string,
-    age: PropTypes.number
+    age: PropTypes.number,
+    greet: PropTypes.func
 };
