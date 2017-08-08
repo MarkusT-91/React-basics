@@ -8,7 +8,7 @@ export class Home extends React.Component {
         this.state = {
             age: props.initialAge,
             status: 0,
-            homeLink: "Linkki vaihdettu!"
+            homeLink: props.initialLinkName
         };
     }
 
@@ -30,6 +30,12 @@ export class Home extends React.Component {
                 alert("Lopeta!");
             }
     }
+    
+    onHandleChange(event) {
+        this.setState({
+            homeLink: event.target.value
+        });
+    }
 
     render() {
         var text = "Jotain tekstiä!";
@@ -43,7 +49,8 @@ export class Home extends React.Component {
                 <button onClick={() => this.onMakeYounger()} className="btn btn-danger">Vähennä ikää!</button>
                 <hr/>
                 <button onClick={this.props.greet} className="btn btn-success">Tervehdi</button>
-                <hr/>  
+                <hr/>
+                <input type="text" value={this.state.homeLink} onChange={(event) => this.onHandleChange(event)}/>  
                 <button onClick={this.onChangeLink.bind(this)} className="btn btn-primary">Vaihda linkin nimi</button>
             </div>
         );
@@ -53,5 +60,6 @@ export class Home extends React.Component {
 Home.propTypes = { // määrittää mitä tyyppiä minkäkin arvon tulee olla. Jollei esim nimi ole string = error
     name: PropTypes.string,
     age: PropTypes.number,
-    greet: PropTypes.func
+    greet: PropTypes.func,
+    initialLinkName: PropTypes.string
 };
