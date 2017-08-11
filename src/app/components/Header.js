@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 export const Header = (props) => {
         return (
@@ -6,8 +7,8 @@ export const Header = (props) => {
                 <div className="container">
                     <div className="navbar-header">
                         <ul className="nav navbar-nav">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">User</a></li>
+                            <li><NavLink to={"/home"} >Home</NavLink></li>
+                            <li><NavLink to={"/user/10"}>User</NavLink></li>
                         </ul>
                     </div>
                 </div>
